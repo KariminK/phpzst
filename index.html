@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZSTAMPP</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>new zst();</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Tworzenie klasy</h2>
+        <code>
+          class nazwaKlasy{ <br />
+          // pola klasy <br />
+          private $pole1 // pole prywatne <br />
+          public $pole2 // pole publiczne <br />
+          };
+        </code>
+      </section>
+      <section>
+        <h2>Rodzaje pól</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Rodzaj pola</th>
+              <th>Opis</th>
+              <th>Trzeba getter i setter?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>public</td>
+              <td>możemy się do niego dostać z każdego miejsca</td>
+              <td>NIE</td>
+            </tr>
+            <tr>
+              <td>private</td>
+              <td>możemy się do niego dostać tylko w obrębie klasy</td>
+              <td>TAK</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h2>gettery i settery</h2>
+        <p>
+          Getter to funkcja, która zwraca nam wartość pola prywatnego <br />
+          Setter najczęściej w argumencie przyjmuje wartość i ustawia ją jako
+          wartość pola prywatnego <br />
+          Używamy je m. in dlatego, żeby móc walidować dane wrzucane do pól
+        </p>
+        <code>
+          class nazwaKlasy{<br />
+          <br />
+          private $nazwaPola; <br />
+          <br />
+          function setNazwaPola($value){ <br />
+          $this->nazwaPola = $value; <br />
+          }<br />
+          <br />
+          function getNazwaPola($value){ <br />
+          return $this->nazwaPola; <br />
+          } <br />
+          <br />
+          }
+        </code>
+      </section>
+      <section>
+        <h2>__construct() i __destruct</h2>
+        <p>
+          __construct jest wywoływany przy tworzeniu klasy. W jego argumentach
+          możemy podać wartości, które chcemy wpisać do pól <br />
+          __destruct jest wywoływany przy usuwaniu obiektu <br />
+        </p>
+        <code>
+          class nazwaKlasy{ <br />
+          public $nazwaPola; <br /><br />
+          public $nazwaPola2;<br /><br />
+          function __construct($wartosc1, $wartosc2){<br />
+          $this->nazwaPola = $wartosc1; <br />
+          $this->nazwaPola2 = $wartosc2; <br />
+          } <br /><br />
+          function __destruct(){<br />
+          echo "Zniszczono obiekt";<br />
+          } <br />
+          } <br />
+          $obiekt = new nazwaKlasy("x", "y"); <br />
+          echo $obiekt->$nazwaPola."&lt;br&gt;"; // x <br />
+          echo $obiekt->$nazwaPola2."&lt;br&gt;"; // y <br />
+          unset($obiekt); // Zniszczono obiekt
+        </code>
+      </section>
+    </main>
+  </body>
+</html>
